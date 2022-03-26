@@ -1,9 +1,7 @@
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 560px;
+    width: 560px; /** 560x560 is so that we can have a grid with 28 squares by 28 squares*/
     height: 560px;
     border: solid black;
-    
-
 }
