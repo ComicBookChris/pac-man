@@ -35,9 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
         1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
     ]
 
+    //* squares array is empty, will be pushing items with the createBoard function
     const squares = []
 
-    //* 0 - Legend
+    //* Legend
+
+    //* 0 - pac-dot
 
     //* 1 - wall
     
@@ -50,8 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //* draw the grid and render interface
     function createBoard() {
         for (let i=0; i < layout.length; i++) {
+            //* createElement JS method
             const square = document.createElement('div')
+            //* appendChild JS method
             grid.appendChild(square)
+            //* push square into a new array called squares
             squares.push(square)
 
             //* add layout to the board 
@@ -71,5 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     squares[pacmanCurrentIndex].classList.add('pac-man')
 
+    //* move pac-man with key codes, using switch statements
+    function movePacman(e) {
+        squares[pacmanCurrentIndex].classList.remove('pac-man')
 
-})
+        switch(e.keyCode) {
+        case 37:
+            if(pacmanCurrentIndex % width !== 0) pacmanCurrentIndex -=1
+            break
+            case 38:
+                if(pacmanCurrentIndex - width >= 0) pacmanCurrentIndex -=width
+                break
+                case 39:
+                    if(pacmanCurrentIndex % width < width -1) pacmanCurrentIndex +=1
+                    break
+                    case 40:
+                        if(pacmanCurrentIndex + width < width * width) pacmanCurrentIndex +=width
+                        break
+        }
+        squares[pacmanCurrentIndex].classList.add('pac-man')
+
+        //TODO pacDotEaten()
+        //TODO powerPelletEaten()
+        //TODO checkForGameOver()
+        //TODO checkForWin()
+    }
+
+    document.addEventListener('keyup', movePacman)
+
+}
+
+
+)
