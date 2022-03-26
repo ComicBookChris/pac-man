@@ -66,4 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     createBoard()
 
+    //* starting position of pac-man
+    let pacmanCurrentIndex = 490
+
+    squares[pacmanCurrentIndex].classList.add('pac-man')
+
+
 })
