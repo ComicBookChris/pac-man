@@ -18,3 +18,32 @@ Inbuilt JavaScript methods I have used:
 - constructor
 - setInterval()
 - removeEventListener
+
+
++ Operator: Addition 
+var x = 5, y = 7;
+var sum;
+sum = x + y; // 12 
+
+- Operator: Subtraction
+var x = 5; y = 7;
+var diff1, diff2;
+diff1 = x-y; // -2
+diff2 = y-x; // 2
+
+* Operator: Multiplication
+var x = 8, y = 4;
+var product;
+product = x*y; // 32
+
+/ Operator: Division
+var x = 36, y = 9, x = 5;
+var div1, div2;
+div1 = x/y; // 4
+div2 = x/z; // 7.2
+
+% Operator: Modulus (remainder)
+var x = 24, y = 5, x = 6;
+var mod1, mod2;
+mod1 = x%y; // 4
+mod2 = x%z; // 0

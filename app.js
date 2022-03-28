@@ -92,29 +92,38 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[pacmanCurrentIndex].classList.remove('pac-man')
 
         switch(e.keyCode) {
+        //* keycode 37: Arrow Left
         //* if you press a key, with the keycode 37, left arrow key, you are checking if pac-man is in a square where the number 
         //* is divisible by the width of 28 and does not leave a remainder of O, if this is true, move pac-man left
+        //* "-=" is a Subtraction Assignment Operator: subtracts from its current value
         case 37:
             if(pacmanCurrentIndex % width !== 0 
                 && !squares[pacmanCurrentIndex -1].classList.contains('wall') 
                 && !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')) 
                 pacmanCurrentIndex -=1
             break
+            //* keycode 38: Arrow Up
             //* for case 38, if you press the up arrow on the keyboard, if pac-man is currently in a square where the index number,
             //* if you take away 28 and it is greater than zero, it means you are allowed to keep moving up, or technically one whole
             //* width down the array
+            //* double and ("&&") is there to check if both statements are true
+            //* if both statements are true, we can then execute our if statement
+            //* therefor if pacman's width is divisible
             case 38:
                 if(pacmanCurrentIndex - width >= 0 
                     && !squares[pacmanCurrentIndex -width].classList.contains('wall') 
                     && !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')) 
                     pacmanCurrentIndex -=width
                 break
+                //* keycode 39: Arrow Right
+                //* "+=" is an Addition Assignment Operator: adds to its current value
                 case 39:
                     if(pacmanCurrentIndex % width < width -1 
                         && !squares[pacmanCurrentIndex +1].classList.contains('wall') 
                         && !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')) 
                         pacmanCurrentIndex +=1
                     break
+                    //* keycode 40: Arrow Down
                     case 40:
                         if(pacmanCurrentIndex + width < width * width 
                             && !squares[pacmanCurrentIndex +width].classList.contains('wall')
